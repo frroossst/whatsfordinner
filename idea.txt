@@ -1,0 +1,7 @@
+- add a feature that tracks stuff in the fridge and gives suggestions accoridingly
+
+- gives random suggestions but makes sure that the same items are not suggested every day, probably impliment a json or csv file of all the food suggestions for the day
+
+- maybe optimize suggestions for the week according to prep time, price etc.
+
+- impiment a ML model to track what actually gets made and tune suggestions accordingly
