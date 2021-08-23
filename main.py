@@ -1,11 +1,23 @@
 from datetime import datetime
 import random
 import json
+import os
 
-class record():
+class Record():
     
     def __init__(self) -> None:
-        pass
+        lunchF = "lunchRecord.json"
+        dinnerF = "dinnerRecord.json"
+        if os.path.exists(lunchF):
+            pass
+        else:
+            with open("lunchRecord.json","w") as fobj:
+                fobj.close()
+        if os.path.exists(dinnerF):
+            pass
+        else:
+            with open("dinnerRecord.json","w") as fobj:
+                fobj.close()
 
     def addRecord(self,item,type):
         self.item = item
@@ -40,12 +52,31 @@ class record():
                 json.dump(content,fobj,indent=6)
                 fobj.close()
 
+class algorithm():
+
+    def __init__(self) -> None:
+        pass
 
 def main():
-    pass
+    
+    print("1. Add a record")
+    print("2. Recommend food")
+    print("/quit")
+    ch = int(input("enter choice : "))
+    if ch == 1:
+        R = Record()
+        item = input("enter food : ")
+        dayTime = input("time of the day : ")
+        R.addRecord(item,dayTime)
+
+    elif ch == 2:
+        pass
+    
+    elif ch == "/quit":
+        quit()
+    
+    else:
+        print("Invalid choice")
+        main()
 
 main()
-
-R = record()
-R.addRecord("food0","dinner")
-R.addRecord("food1","lunch")
