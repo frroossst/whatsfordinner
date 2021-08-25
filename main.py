@@ -57,6 +57,18 @@ class algorithm():
     def __init__(self) -> None:
         pass
 
+    def randomSuggest(self,timeDay):
+        if timeDay == "lunch":
+            with open("lunchRecord.json","r") as fobj:
+                content = json.load(fobj)
+        elif timeDay == "dinner":
+            with open("dinnerRecord.json","r") as fobj:
+                content = json.load(fobj)
+        else:
+            raise SyntaxError ("invalid 'timeDay' argument")
+
+        print(random.sample(list(content.values()),1))
+
 def main():
     
     print("1. Add a record")
@@ -79,4 +91,5 @@ def main():
         print("Invalid choice")
         main()
 
-main()
+A = algorithm()
+A.randomSuggest("lu0ch")
