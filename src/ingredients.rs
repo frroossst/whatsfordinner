@@ -1,8 +1,10 @@
+#[derive(Debug)]
 pub enum Unit {
     Grams,
     Milliliters,
 }
 
+#[derive(Debug)]
 pub struct Ingredient {
     name: String,
     amount: i32,

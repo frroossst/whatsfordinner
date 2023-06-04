@@ -2,6 +2,8 @@
 
 This is to help me with grocery and meal prepping without having to go through some serious decision fatigue.
 
+Find 30 recipes that I like, are fairly easy to cook, and are affordable, have a pretty basic algorithm pick out recipes for week-ish and generate a grocery list
+
 
 ## Schema
 

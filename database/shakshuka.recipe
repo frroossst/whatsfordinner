@@ -1,0 +1,33 @@
+[meta]
+name = "shakshuka"
+effort = "low"
+
+[ingredients]
+red_bell_pepper = "1"
+sweet_onion = "1"
+butter = "3 tbsp"
+garlic = "4 cloves"
+cumin = "1 tsp"
+paprika = "1 tsp"
+cayenne = "1/2 tsp"
+crushed_tomatoes = "1 can (28 oz)"
+eggs = "6"
+feta_cheese = "garnish"
+cilantro = "garnish"
+bread = "1 loaf"
+
+
+[instructions]
+step1 = "dice red_bell_pepper and sweet_onion"
+step2 = "heat butter in a pan"
+step3 = "add red_bell_pepper and sweet_onion to pan, once hot and bubbling"
+step4 = "add 4 cloves garlic"
+step5 = "season with salt and pepper"
+step6 = "add cumin, paprika, and cayenne"
+step7 = "add crushed_tomatoes"
+step8 = "add eggs into indents"
+step9 = "pop into over pre-heated to 375 degrees fahrenheit"
+step10 = "cook for 7-10 minutes"
+step11 = "garnish with feta_cheese and cilantro"
+step12 = "serve with bread"
+

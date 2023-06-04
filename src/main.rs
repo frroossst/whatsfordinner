@@ -1,12 +1,9 @@
 use clap::Parser;
-use ::recipes::Recipe;
-
-#[derive(Parser, Debug)]
-struct Args
-    {
-    }
+use whatsfordinner::recipes::Recipe;
 
 fn main() 
     {
-    let r = Recipe::load("recipes/cookies.toml");
+    let mut recipe = Recipe::new();
+    recipe.load("./database/orzo_salad.recipe".to_string());
+    println!("Recipe: {:#?}", recipe);
     }

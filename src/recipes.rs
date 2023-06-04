@@ -1,37 +1,38 @@
 use crate::ingredients::Ingredient;
+use std::any::{type_name, Any};
 use std::fs::File;
 use std::io::Read;
 use toml::Table;
 
+#[derive(Debug)]
 pub struct Recipe {
     pub name: String,
-    pub ingredients: Vec<Ingredient>,
+//    pub ingredients: Vec<Ingredient>,
     pub instructions: Vec<String>,
 }
 
 impl Recipe {
-    pub fn new(name: String) -> Recipe {
+    pub fn new() -> Recipe {
         Recipe {
-            name,
-            ingredients: Vec::new(),
+            name: String::new(),
+//            ingredients: Vec::new(),
             instructions: Vec::new(),
         }
     }
-    pub fn load(filePath: String) -> () {
-        let mut fobj = match File::open(filePath) {
+    pub fn load(&mut self, file_path: String) -> () {
+        let mut fobj = match File::open(file_path) {
             Ok(fobj) => fobj,
             Err(e) => panic!("Failed to open file: {}", e),
         };
+
         let mut contents = String::new();
-        match fobj.read_to_string(&mut contents) {
-            Ok(_) => {}
-            Err(e) => panic!("Failed to read file: {}", e),
-        };
-        let table: Table = match toml::from_str(&contents) {
-            Ok(table) => table,
-            Err(e) => panic!("Failed to parse TOML: {}", e),
-        };
-        println!("{:?}", table);
+        fobj.read_to_string(&mut contents).expect("failed to read file to string");
+
+        let table = contents.parse::<Table>().expect("failed to parse file to table");
+
+        for k in table.values() {
+            println!("{}", k);
+        }
     }
 }
  

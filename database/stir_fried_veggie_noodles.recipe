@@ -1,0 +1,18 @@
+[meta]
+name = "stir fried veggie noodles"
+effort = "easy"
+
+[ingredients]
+noodles = "per serving"
+veggies = "all kinds"
+garlic = "1 clove"
+soy_sauce = "1 tbsp"
+ginger = "1 tsp"
+siracha = "1 tsp"
+black_pepper = "1 tsp"
+
+[instructions]
+step1 = "boil water and cook noodles"
+step2 = "saute, steam and cook veggies"
+step3 = "prepare sauce by mixing soy sauce, ginger, garlic, siracha, black pepper"
+step4 = "mix noodles and veggies"

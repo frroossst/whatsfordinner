@@ -1,0 +1,28 @@
+[meta]
+name = "orzo salad"
+effort = "low"
+
+[ingredients]
+orzo_pasta = "1 cup"
+red_onions = "1/2 cup"
+tomatoes = "1/2 cup"
+brussel_sprouts = "1/2 cup"
+parsley = "garnish"
+feta = "1/2 cup"
+olive_oil = "30 g"
+vinegar = "15 g"
+mustard = "5 g"
+garlic = "1 clove"
+oregano = "pinch"
+salt = "pinch"
+black_pepper = "pinch"
+
+
+[instructions]
+step1 = "cook orzo in boiling water for 8 minutes, with salt, and high heat"
+step2 = "drain orzo and let cool"
+step3 = "chop onions, tomatoes, and brussel sprouts"
+step4 = "mix all ingredients together"
+step5 = "mix in olive oil, vinegar, mustard, garlic, oregano, salt, and pepper and shake to emulsify"
+step6 = "pour dressing over salad and mix"
+

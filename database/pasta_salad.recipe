@@ -1,0 +1,25 @@
+[meta]
+name = "deli pasta salad"
+effort = "easy"
+
+[ingredients]
+macroni = "1 cup"
+onions = "1/4 cup"
+carrots = "1/4 cup"
+bell pepper = "1/4 cup"
+mayonaise = "200 g"
+mustard = "20 g"
+sugar = "5 g"
+lemon_juice = "1/4 lemon"
+garlic_powder = "1 g"
+black_pepper = "2 g"
+salt = "sprinkle"
+
+[instructions]
+step1 = "boil salted water"
+step2 = "overcook pasta by 3-4 minutes than the package says"
+step3 = "drain pasta and rinse with cold water"
+step4 = "dice all vegetables"
+step5 = "prepare dressing by mixing mayonaise, mustard, sugar, lemon juice, garlic powder, black pepper and salt. Mix Well"
+step6 = "mix pasta, vegetables and dressing"
+

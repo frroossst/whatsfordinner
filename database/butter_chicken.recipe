@@ -1,0 +1,33 @@
+[meta]
+name = "butter chicken"
+effort = "easy"
+
+[ingredients]
+chicken = "breast"
+yoghurt = "1 cup"
+garam_masala = "2 tbsp"
+salt = "1 tsbp"
+yellow_onion = "1"
+ginger = "2 inch"
+garlic = "6 cloves"
+smoked_paprika = "2 tsp"
+cumin = "2 tsp"
+tumeric_powder = "1.5 tsp"
+crushed_tomatoes = "1 can"
+heavy_cream = "1 cup"
+unsalted_butter = "2 tbsp"
+rice = "1 cup"
+
+[instructions]
+step1 = "in a bowl mix yoghurt, 1 tbsp garam masala, salt, whisk and combine"
+step2 = "boneless, skinless chicken, slice into pieces, mix and toss into the bowl"
+step3 = "marinate for 30 minutes or ideally overnight, cover with cling film"
+step4 = "heat oil in a pan, add chicken, sear until coloured, remain uncooked"
+step5 = "add a little bit more oil, add onions, lower heat, add diced ginger, sliced garlic, add salt and pepper" 
+step6 = "cook stir and scrape, cook until soften"
+step7 = "add smoked paprika, cumin, 1 tbsp garam masala, tumeric_powder, stir and cook for 1-2 minute"
+step8 = "add crushed tomatoes, stir and cook for 1-2 minute, medium heat and simmer and reduce till thick"
+step9 = "add chicken"
+step10 = "add heavy cream, stir and cook for 3-4 minutes, stir continuously"
+step11 = "add unsalted butter, stir and cook for 1-2 minutes, stir continuously"
+step12 = "serve with rice"
