@@ -1,6 +1,7 @@
 [meta]
 name = "tortilla wrap"
 effort = "easy"
+genre = "wrap"
 
 [ingredients]
 tortilla = 1

@@ -1,6 +1,7 @@
 [meta]
 name = "butter chicken"
 effort = "easy"
+genre = "rice"
 
 [ingredients]
 chicken = "breast"

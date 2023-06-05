@@ -1,6 +1,7 @@
 [meta]
 name = "stir fried veggie noodles"
 effort = "easy"
+genre = "noodles"
 
 [ingredients]
 noodles = "per serving"

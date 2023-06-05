@@ -1,6 +1,7 @@
 [meta]
 name = "shakshuka"
 effort = "low"
+genre = "oven"
 
 [ingredients]
 red_bell_pepper = "1"

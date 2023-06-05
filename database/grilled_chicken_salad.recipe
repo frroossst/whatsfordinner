@@ -1,6 +1,7 @@
 [meta]
 name = "grilled chicken salad"
 effort = "medium"
+genre = "salad"
 
 [ingredients]
 chicken = "breast"

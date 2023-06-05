@@ -1,6 +1,7 @@
 [meta]
 name = "orzo salad"
 effort = "low"
+genre = "salad"
 
 [ingredients]
 orzo_pasta = "1 cup"

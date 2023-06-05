@@ -1,6 +1,7 @@
 [meta]
 name = "deli pasta salad"
 effort = "easy"
+genre = "salad"
 
 [ingredients]
 macroni = "1 cup"
