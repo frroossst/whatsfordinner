@@ -1,0 +1,17 @@
+[meta]
+name = "sandwich"
+effort = "easy"
+genre = "sandwich"
+
+[ingredients]
+bread = "2 slices"
+cheese = "2 slices"
+lettuce = "1 leaf"
+tomato = "1 slice"
+ketchup = "1 tbsp"
+
+[instructions]
+step1 = "Place cheese on bread"
+step2 = "Place tomato on cheese"
+step3 = "Place lettuce on tomato"
+step4 = "Place ketchup on lettuce"
