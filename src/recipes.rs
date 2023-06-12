@@ -1,5 +1,5 @@
 use std::collections::HashMap;
-use super::utils;
+use crate::utils;
 
 #[derive(Debug)]
 pub struct Recipe {
