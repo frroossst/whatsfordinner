@@ -3,7 +3,7 @@ mod tests {
     use crate::measurements::*;
 
     #[test]
-    fn cups_to_tbsp() {
+    fn test_cups_to_tbsp() {
         let cup = LiquidMeasurement::Cup(1);
         let tbsp = cup.to_tbsp();
         assert_eq!(tbsp, 16);
@@ -12,4 +12,10 @@ mod tests {
         let tbsp = cup.to_tbsp();
         assert_eq!(tbsp, 32);
     }
+
+    #[test]
+    fn test_foo() {
+        assert_eq!(1, 1);
+    }
+
 }
