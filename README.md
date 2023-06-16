@@ -1,5 +1,6 @@
 # `whatsfordinner`
-
+[![Rust Test](https://github.com/frroossst/whatsfordinner/actions/workflows/cargotest.yaml/badge.svg)](https://github.com/frroossst/whatsfordinner/actions/workflows/cargotest.yaml)
+---
 This is to help me with grocery and meal prepping without having to go through some serious decision fatigue.
 
 The initial idea was to use a GPT like LLM, but a simple greedy algorithm should do, until the overhead of LLM training and running is minimal at least.
