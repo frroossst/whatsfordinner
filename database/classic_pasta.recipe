@@ -1,0 +1,21 @@
+[meta]
+name = "pasta"
+effort = "easy"
+genre = "pasta"
+
+[ingredients]
+pasta = "1/2 cup"
+sauce = "1/2 cup"
+olive_oil = "1/2 cup"
+onions = "1"
+brocolli = "1/2"
+bell_pepper = "1/2"
+salt = "1/2 tsp"
+pepper = "1/2 tsp"
+
+[instructions]
+step1 = "Boil pasta in salted water"
+step2 = "Saute onions, bell pepper, and brocolli in olive oil"
+step3 = "Add sauce to vegetables, let simmer"
+step4 = "Add pasta to vegetables and sauce"
+

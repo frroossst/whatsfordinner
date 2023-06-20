@@ -1,0 +1,24 @@
+[meta]
+name = "cold cut sandwich"
+effort = "easy"
+genre = "sandwich"
+
+[ingredients]
+bread = "2 slices"
+cheese = "2 slices"
+cold_cut = "2 slices"
+lettuce = "1 leaf"
+tomato = "1 slice"
+cucumber = "5 slice"
+mayo = "1 tbsp"
+mustard = "1 tbsp"
+
+[instructions]
+step1 = "spread mayo on one slice of bread"
+step2 = "spread mustard on the other slice of bread"
+step3 = "place cheese on one slice of bread"
+step4 = "place cold cut on top of cheese"
+step5 = "place lettuce on top of cold cut"
+step6 = "place tomato on top of lettuce"
+step7 = "place cucumber on top of tomato"
+step8 = "place other slice of bread on top of cucumber"
