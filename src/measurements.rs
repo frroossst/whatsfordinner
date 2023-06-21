@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub enum LiquidMeasurement {
     Milliliters(u32),
     TableSpoon(u32),
@@ -37,36 +38,41 @@ impl LiquidMeasurement {
     }
 }
 
-pub enum WeightMeasurement {
+#[derive(Debug)]
+pub enum DryMeasurement {
     Milligrams(u32),
     Grams(u32),
     Kilograms(u32),
 }
 
-impl WeightMeasurement {
+impl DryMeasurement {
     pub fn to_mg(&self) -> u32 {
         match *self {
-            WeightMeasurement::Milligrams(mg) => mg,
-            WeightMeasurement::Grams(g) => g * 1000,
-            WeightMeasurement::Kilograms(kg) => kg * 1000000,
+            DryMeasurement::Milligrams(mg) => mg,
+            DryMeasurement::Grams(g) => g * 1000,
+            DryMeasurement::Kilograms(kg) => kg * 1000000,
         }
     }
 
     pub fn to_g(&self) -> u32 {
         match *self {
-            WeightMeasurement::Milligrams(mg) => mg / 1000,
-            WeightMeasurement::Grams(g) => g,
-            WeightMeasurement::Kilograms(kg) => kg * 1000,
+            DryMeasurement::Milligrams(mg) => mg / 1000,
+            DryMeasurement::Grams(g) => g,
+            DryMeasurement::Kilograms(kg) => kg * 1000,
         }
     }
 
     pub fn to_kg(&self) -> u32 {
         match *self {
-            WeightMeasurement::Milligrams(mg) => mg / 1000000,
-            WeightMeasurement::Grams(g) => g / 1000,
-            WeightMeasurement::Kilograms(kg) => kg,
+            DryMeasurement::Milligrams(mg) => mg / 1000000,
+            DryMeasurement::Grams(g) => g / 1000,
+            DryMeasurement::Kilograms(kg) => kg,
         }
     }
 }
 
-
+#[derive(Debug)]
+pub enum Measurements {
+    Liquid(LiquidMeasurement),
+    Dry(DryMeasurement),
+}

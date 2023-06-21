@@ -1,11 +1,13 @@
+use crate::measurements::Measurements;
+
 #[derive(Debug)]
 pub struct Ingredient {
     name: String,
-    amount: i32,
+    amount: Measurements,
 }
 
 impl Ingredient {
-    pub fn new(name: String, amount: i32) -> Self {
+    pub fn new(name: String, amount: Measurements) -> Self {
         Self {
             name,
             amount,
