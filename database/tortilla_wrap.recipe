@@ -4,14 +4,14 @@ effort = "easy"
 genre = "wrap"
 
 [ingredients]
-tortilla = 1
+tortilla = "1"
 cheese = "1/2 cup"
 grilled_chicken = "1/2 cup"
 lettuce = "1/2 cup"
 pickled_onion = "1/4 cup"
 
 [instructions]
-step_1 = "Warm the tortilla in a pan"
-step_2 = "Add the cheese, chicken, lettuce, and pickled onion"
-step_3 = "Wrap the tortilla"
+step1 = "Warm the tortilla in a pan"
+step2 = "Add the cheese, chicken, lettuce, and pickled onion"
+step3 = "Wrap the tortilla"
 
