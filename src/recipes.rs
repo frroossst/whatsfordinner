@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use crate::utils;
 
-#[derive(Debug, Eq)]
+#[derive(Debug, Eq, Clone)]
 pub struct Recipe {
     pub name: String,
     pub genre: String,

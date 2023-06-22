@@ -1,6 +1,7 @@
 // generates a list of meals to be prepped for 2 weeks
 // and also generates an acoompanying shopping list
 use crate::recipes::Recipe;
+use rand::seq::SliceRandom;
 use std::fs::read_dir;
 use std::path::Path;
 
@@ -9,7 +10,14 @@ use std::path::Path;
 /// A hard recipe has a 10% chance of being selected
 /// A medium recipe has a 50% chance of being selected
 /// An easy recipe has a 75% chance of being selected
-pub fn pick_recipes() {
+pub fn pick_recipes(db: &mut Vec<Recipe>, recipes_to_pick: usize) -> Vec<Recipe> {
+    let mut rng = rand::thread_rng();
+
+    // picking random recipes from db
+    db.clone().shuffle(&mut rng);
+
+    // return selected recipes
+    db[..recipes_to_pick].to_vec()
 }
 
 
