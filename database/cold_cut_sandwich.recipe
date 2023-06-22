@@ -2,6 +2,7 @@
 name = "cold cut sandwich"
 effort = "easy"
 genre = "sandwich"
+ingredients_lead = "10"
 
 [ingredients]
 bread = "2 slices"

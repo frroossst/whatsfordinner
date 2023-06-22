@@ -2,6 +2,7 @@
 name = "butter chicken"
 effort = "easy"
 genre = "rice"
+ingredients_lead = "2"
 
 [ingredients]
 chicken = "breast"

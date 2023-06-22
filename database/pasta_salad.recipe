@@ -2,6 +2,7 @@
 name = "deli pasta salad"
 effort = "easy"
 genre = "salad"
+ingredients_lead = "127"
 
 [ingredients]
 macroni = "1 cup"

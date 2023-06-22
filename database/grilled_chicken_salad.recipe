@@ -2,6 +2,7 @@
 name = "grilled chicken salad"
 effort = "medium"
 genre = "salad"
+ingredients_lead = "2"
 
 [ingredients]
 chicken = "breast"

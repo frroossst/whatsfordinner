@@ -2,6 +2,7 @@
 name = "shakshuka"
 effort = "low"
 genre = "oven"
+ingredients_lead = "7"
 
 [ingredients]
 red_bell_pepper = "1"

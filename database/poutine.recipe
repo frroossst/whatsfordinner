@@ -2,6 +2,7 @@
 name = "poutine"
 effort = ""
 genre = "fast"
+ingredients_lead = "60"
 
 [ingredients]
 potatoes = "2 lb"

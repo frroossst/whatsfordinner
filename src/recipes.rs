@@ -6,7 +6,7 @@ pub struct Recipe {
     pub name: String,
     pub genre: String,
     pub effort: String,
-    pub cooking_lead_time: i8,
+    pub ingredients_lead: i8,
     pub instructions: Vec<String>,
     pub ingredients: HashMap<String, String>,
 }
@@ -19,7 +19,7 @@ impl Recipe {
             effort: String::new(),
             instructions: Vec::new(),
             ingredients: HashMap::new(),
-            cooking_lead_time: 0,
+            ingredients_lead: 0,
         }
     }
     pub fn load(&mut self, file_path: String) -> () {
@@ -28,6 +28,7 @@ impl Recipe {
         self.name = table["meta"]["name"].as_str().unwrap().to_string();
         self.genre = table["meta"]["genre"].as_str().unwrap().to_string();
         self.effort = table["meta"]["effort"].as_str().unwrap().to_string();
+        self.ingredients_lead = table["meta"]["ingredients_lead"].as_str().unwrap().to_string().parse::<i8>().expect("invalid cooking lead time");
 
         let ings: Vec<_> = table["ingredients"].as_table_mut().unwrap().iter_mut().collect();
         for i in ings {
@@ -46,19 +47,19 @@ impl Recipe {
 
 impl Ord for Recipe {
     fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        self.cooking_lead_time.cmp(&other.cooking_lead_time)
+        self.ingredients_lead.cmp(&other.ingredients_lead)
     }
 }
 
 impl PartialOrd for Recipe {
     fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        Some(self.cooking_lead_time.cmp(&other.cooking_lead_time))
+        Some(self.ingredients_lead.cmp(&other.ingredients_lead))
     }
 }
 
 impl PartialEq for Recipe {
     fn eq(&self, other: &Self) -> bool {
-        self.cooking_lead_time == other.cooking_lead_time
+        self.ingredients_lead == other.ingredients_lead
     }
 }
 

@@ -2,6 +2,7 @@
 name = "orzo salad"
 effort = "low"
 genre = "salad"
+ingredients_lead = "127"
 
 [ingredients]
 orzo_pasta = "1 cup"

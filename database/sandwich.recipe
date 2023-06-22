@@ -2,6 +2,7 @@
 name = "sandwich"
 effort = "easy"
 genre = "sandwich"
+ingredients_lead = "7"
 
 [ingredients]
 bread = "2 slices"

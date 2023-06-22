@@ -2,6 +2,7 @@
 name = "pasta"
 effort = "easy"
 genre = "pasta"
+ingredients_lead = "127"
 
 [ingredients]
 pasta = "1/2 cup"
