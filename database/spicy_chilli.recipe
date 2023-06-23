@@ -1,0 +1,13 @@
+[meta]
+name = "spicy chilli"
+effort = "easy"
+genre = "canned"
+ingredients_lead = "127"
+
+[ingredients]
+canned_spicy_chilli = "1 can"
+
+[instructions]
+step1 = "heat up the chilli, until boiling"
+step2 = "serve with rice, bread or a wrap"
+
