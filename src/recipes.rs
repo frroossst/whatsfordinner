@@ -1,3 +1,4 @@
+use crate::measurements::Measurements;
 use std::collections::HashMap;
 use crate::utils;
 
@@ -32,8 +33,14 @@ impl Recipe {
 
         let ings: Vec<_> = table["ingredients"].as_table_mut().unwrap().iter_mut().collect();
         for i in ings {
+            let amount_parse = i.1.as_str().unwrap().to_string().split(" ").collect::<Vec<&str>>();
             let name = i.0.clone();
-            let amount = i.1.as_str().unwrap().to_string();
+            let amount;
+            match amount_parse[1] {
+                "tsp" => {
+
+                }
+            }
             self.ingredients.insert(name, amount);
         }
 

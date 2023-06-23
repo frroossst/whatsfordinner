@@ -72,7 +72,18 @@ impl DryMeasurement {
 }
 
 #[derive(Debug)]
+pub enum PrePackagedMeasurement {
+    Package(u32),
+    Bag(u32),
+    Bottle(u32),
+    Can(u32),
+    Jar(u32),
+    Carton(u32),
+}
+
+#[derive(Debug)]
 pub enum Measurements {
     Liquid(LiquidMeasurement),
     Dry(DryMeasurement),
+    PrePackaged(PrePackagedMeasurement),
 }
