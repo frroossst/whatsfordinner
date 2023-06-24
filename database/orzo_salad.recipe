@@ -6,18 +6,18 @@ ingredients_lead = "127"
 
 [ingredients]
 orzo_pasta = "1 cup"
-red_onions = "1/2 cup"
-tomatoes = "1/2 cup"
-brussel_sprouts = "1/2 cup"
+red_onions = "0.5 cup"
+tomatoes = "0.5 cup"
+brussel_sprouts = "0.5 cup"
 parsley = "garnish"
-feta = "1/2 cup"
+feta = "0.5 cup"
 olive_oil = "30 g"
 vinegar = "15 g"
 mustard = "5 g"
 garlic = "1 clove"
-oregano = "pinch"
-salt = "pinch"
-black_pepper = "pinch"
+oregano = "1 pinch"
+salt = "1 pinch"
+black_pepper = "1 pinch"
 
 
 [instructions]

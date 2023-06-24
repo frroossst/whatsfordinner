@@ -5,14 +5,14 @@ genre = "pasta"
 ingredients_lead = "127"
 
 [ingredients]
-pasta = "1/2 cup"
-sauce = "1/2 cup"
-olive_oil = "1/2 cup"
-onions = "1"
-brocolli = "1/2"
-bell_pepper = "1/2"
-salt = "1/2 tsp"
-pepper = "1/2 tsp"
+pasta = "0.5 cup"
+sauce = "0.5 cup"
+olive_oil = "0.5 cup"
+onions = "1 whole"
+brocolli = "1 whole"
+bell_pepper = "1 whole"
+salt = "0.5 tsp"
+pepper = "0.5 tsp"
 
 [instructions]
 step1 = "Boil pasta in salted water"

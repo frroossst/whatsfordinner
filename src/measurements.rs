@@ -3,47 +3,52 @@ pub enum IngredientMeasurement {
     Cloves(u8),
     Inch(u8),
     Pinch(u8),
+    Garnish,
     Sprinkle,
+    ToTaste,
+    Leaf(u8),
+    Loaf(u8),
     Whole(u8),
+    Slice(u8),
     Unspecified,
 }
 
-#[derive(Debug, Clone, Eq, PartialEq)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum LiquidMeasurement {
-    Milliliters(u32),
-    TableSpoon(u32),
-    TeaSpoon(u32),
-    FluidOunce(u32),
-    Cup(u32),
+    Milliliters(f32),
+    TableSpoon(f32),
+    TeaSpoon(f32),
+    FluidOunce(f32),
+    Cup(f32),
 }
 
 impl LiquidMeasurement {
-    pub fn to_tsp(&self) -> u32 {
+    pub fn to_tsp(&self) -> f32 {
         match *self {
-            LiquidMeasurement::Milliliters(ml) => ml / 5,
-            LiquidMeasurement::TableSpoon(tbsp) => tbsp * 3,
+            LiquidMeasurement::Milliliters(ml) => ml / 5.,
+            LiquidMeasurement::TableSpoon(tbsp) => tbsp * 3.,
             LiquidMeasurement::TeaSpoon(tsp) => tsp,
-            LiquidMeasurement::FluidOunce(oz) => oz * 6,
-            LiquidMeasurement::Cup(cup) => cup * 48,
+            LiquidMeasurement::FluidOunce(oz) => oz * 6.,
+            LiquidMeasurement::Cup(cup) => cup * 48.,
         }
     }
-    pub fn to_tbsp(&self) -> u32 {
+    pub fn to_tbsp(&self) -> f32 {
         match *self {
-            LiquidMeasurement::Milliliters(ml) => ml / 15,
+            LiquidMeasurement::Milliliters(ml) => ml / 15.,
             LiquidMeasurement::TableSpoon(tbsp) => tbsp,
-            LiquidMeasurement::TeaSpoon(tsp) => tsp / 3,
-            LiquidMeasurement::FluidOunce(oz) => oz * 2,
-            LiquidMeasurement::Cup(cup) => cup * 16,
+            LiquidMeasurement::TeaSpoon(tsp) => tsp / 3.,
+            LiquidMeasurement::FluidOunce(oz) => oz * 2.,
+            LiquidMeasurement::Cup(cup) => cup * 16.,
         }
     }
 
-    pub fn to_ml(&self) -> u32 {
+    pub fn to_ml(&self) -> f32 {
         match *self {
             LiquidMeasurement::Milliliters(ml) => ml,
-            LiquidMeasurement::TableSpoon(tbsp) => tbsp * 15,
-            LiquidMeasurement::TeaSpoon(tsp) => tsp * 5,
-            LiquidMeasurement::FluidOunce(oz) => oz * 30,
-            LiquidMeasurement::Cup(cup) => cup * 240,
+            LiquidMeasurement::TableSpoon(tbsp) => tbsp * 15.,
+            LiquidMeasurement::TeaSpoon(tsp) => tsp * 5.,
+            LiquidMeasurement::FluidOunce(oz) => oz * 30.,
+            LiquidMeasurement::Cup(cup) => cup * 240.,
         }
     }
 }
@@ -54,6 +59,7 @@ pub enum DryMeasurement {
     Milligrams(u32),
     Grams(u32),
     Kilograms(u32),
+    Pounds(u32),
 }
 
 impl DryMeasurement {
@@ -62,6 +68,7 @@ impl DryMeasurement {
             DryMeasurement::Milligrams(mg) => mg,
             DryMeasurement::Grams(g) => g * 1000,
             DryMeasurement::Kilograms(kg) => kg * 1000000,
+            DryMeasurement::Pounds(lb) => lb * 453592,
             DryMeasurement::Count(_) => panic!("Cannot convert count to mg"),
         }
     }
@@ -71,6 +78,7 @@ impl DryMeasurement {
             DryMeasurement::Milligrams(mg) => mg / 1000,
             DryMeasurement::Grams(g) => g,
             DryMeasurement::Kilograms(kg) => kg * 1000,
+            DryMeasurement::Pounds(lb) => lb * 454,
             DryMeasurement::Count(_) => panic!("Cannot convert count to g"),
         }
     }
@@ -80,6 +88,7 @@ impl DryMeasurement {
             DryMeasurement::Milligrams(mg) => mg / 1000000,
             DryMeasurement::Grams(g) => g / 1000,
             DryMeasurement::Kilograms(kg) => kg,
+            DryMeasurement::Pounds(lb) => lb * 454 / 1000,
             DryMeasurement::Count(_) => panic!("Cannot convert count to kg"),
         }
     }
@@ -95,10 +104,12 @@ pub enum PrePackagedMeasurement {
     Carton(u8),
 }
 
-#[derive(Debug, Clone, Eq, PartialEq)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum Measurements {
     Liquid(LiquidMeasurement),
     Dry(DryMeasurement),
     PrePackaged(PrePackagedMeasurement),
     Ingredient(IngredientMeasurement),
 }
+
+impl Eq for Measurements {}

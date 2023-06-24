@@ -6,14 +6,14 @@ ingredients_lead = "60"
 
 [ingredients]
 potatoes = "2 lb"
-unsalted_butter = "1/4 cup"
-onions = "2"
+unsalted_butter = "0.25 cup"
+onions = "2 whole"
 garlic = "2 cloves"
-all_purpose_flour = "1/4 cup"
-beer = "1/2 cup"
+all_purpose_flour = "0.25 cup"
+beer = "0.5 cup"
 beef_stock = "3 cups"
 worcestshire_sauce = "1 tbsp"
-cheese_curds = "1/2 cup"
+cheese_curds = "0.5 cup"
 
 [instructions]
 step1 = "Peel and cut potatoes into fry batons"

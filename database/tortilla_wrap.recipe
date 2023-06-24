@@ -5,14 +5,13 @@ genre = "wrap"
 ingredients_lead = "127"
 
 [ingredients]
-tortilla = "1"
-cheese = "1/2 cup"
-grilled_chicken = "1/2 cup"
-lettuce = "1/2 cup"
-pickled_onion = "1/4 cup"
+tortilla = "1 whole"
+cheese = "0.5 cup"
+grilled_chicken = "0.5 cup"
+lettuce = "0.5 cup"
+pickled_onion = "0.25 cup"
 
 [instructions]
 step1 = "Warm the tortilla in a pan"
 step2 = "Add the cheese, chicken, lettuce, and pickled onion"
 step3 = "Wrap the tortilla"
-

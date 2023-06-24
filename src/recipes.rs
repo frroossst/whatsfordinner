@@ -36,21 +36,42 @@ println!("{:?}", file_path.clone());
             let amount_collected: Vec<&str> = i.1.as_str().unwrap().split(" ").collect();
             let name = i.0.clone();
 println!("{:?}", amount_collected);
+                
+            match amount_collected[0] {
+                "unspecified" => {
+                    self.ingredients.insert(name.to_string(), Measurements::Ingredient(IngredientMeasurement::Unspecified));
+                    continue;
+                }
+                "sprinkle" | "sprinkles" => {
+                    self.ingredients.insert(name.to_string(), Measurements::Ingredient(IngredientMeasurement::Sprinkle));
+                    continue;
+                }
+                "garnish" => {
+                    self.ingredients.insert(name.to_string(), Measurements::Ingredient(IngredientMeasurement::Garnish));
+                    continue;
+                }
+                "to taste" => {
+                    self.ingredients.insert(name.to_string(), Measurements::Ingredient(IngredientMeasurement::ToTaste));
+                    continue;
+                }
+                _ => {   }
+            }
+
             let amount = match amount_collected[1] {
                 "ml" | "milliliters" => {
-                    Measurements::Liquid(LiquidMeasurement::Milliliters(amount_collected[0].parse::<u32>().expect("invalid amount")))
+                    Measurements::Liquid(LiquidMeasurement::Milliliters(amount_collected[0].parse::<f32>().expect("invalid amount")))
                 }
                 "tsp" | "teaspoon" => {
-                    Measurements::Liquid(LiquidMeasurement::TeaSpoon(amount_collected[0].parse::<u32>().expect("invalid amount")))
+                    Measurements::Liquid(LiquidMeasurement::TeaSpoon(amount_collected[0].parse::<f32>().expect("invalid amount")))
                 }
                 "tbsp" | "tablespoon" => {
-                    Measurements::Liquid(LiquidMeasurement::TableSpoon(amount_collected[0].parse::<u32>().expect("invalid amount")))
+                    Measurements::Liquid(LiquidMeasurement::TableSpoon(amount_collected[0].parse::<f32>().expect("invalid amount")))
                 }
                 "oz" | "fluid ounces" => {
-                    Measurements::Liquid(LiquidMeasurement::FluidOunce(amount_collected[0].parse::<u32>().expect("invalid amount")))
+                    Measurements::Liquid(LiquidMeasurement::FluidOunce(amount_collected[0].parse::<f32>().expect("invalid amount")))
                 }
                 "cup" | "cups" => {
-                    Measurements::Liquid(LiquidMeasurement::Cup(amount_collected[0].parse::<u32>().expect("invalid amount")))
+                    Measurements::Liquid(LiquidMeasurement::Cup(amount_collected[0].parse::<f32>().expect("invalid amount")))
                 }
                 "piece" | "pieces" => {
                     Measurements::Dry(DryMeasurement::Count(amount_collected[0].parse::<u8>().expect("invalid amount")))
@@ -63,6 +84,9 @@ println!("{:?}", amount_collected);
                 }
                 "kg" | "kilograms" => {
                     Measurements::Dry(DryMeasurement::Kilograms(amount_collected[0].parse::<u32>().expect("invalid amount")))
+                }
+                "lb" | "lbs" | "pound" | "pounds" => {
+                    Measurements::Dry(DryMeasurement::Pounds(amount_collected[0].parse::<u32>().expect("invalid amount")))
                 }
                 "bag" | "bags" => {
                     Measurements::PrePackaged(PrePackagedMeasurement::Bag(amount_collected[0].parse::<u8>().expect("invalid amount")))
@@ -90,6 +114,15 @@ println!("{:?}", amount_collected);
                 }
                 "inch" | "inches" => {
                     Measurements::Ingredient(IngredientMeasurement::Inch(amount_collected[0].parse::<u8>().expect("invalid amount")))
+                }
+                "leaf" | "leaves" => {
+                    Measurements::Ingredient(IngredientMeasurement::Leaf(amount_collected[0].parse::<u8>().expect("invalid amount")))
+                }
+                "loaf" | "loaves" => {
+                    Measurements::Ingredient(IngredientMeasurement::Loaf(amount_collected[0].parse::<u8>().expect("invalid amount")))
+                }
+                "slice" | "slices" => {
+                    Measurements::Ingredient(IngredientMeasurement::Slice(amount_collected[0].parse::<u8>().expect("invalid amount")))
                 }
                 "whole" => {
                     Measurements::Ingredient(IngredientMeasurement::Whole(amount_collected[0].parse::<u8>().expect("invalid amount")))

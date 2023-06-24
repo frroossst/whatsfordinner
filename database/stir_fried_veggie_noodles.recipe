@@ -5,8 +5,8 @@ genre = "noodles"
 ingredients_lead = "127"
 
 [ingredients]
-noodles = "per serving"
-veggies = "all kinds"
+noodles = "unspecified"
+veggies = "unspecified"
 garlic = "1 clove"
 soy_sauce = "1 tbsp"
 ginger = "1 tsp"
