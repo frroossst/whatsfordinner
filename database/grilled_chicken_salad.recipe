@@ -5,8 +5,8 @@ genre = "salad"
 ingredients_lead = "2"
 
 [ingredients]
-chicken = "breast"
-salt = "unspecified"
+chicken = "1 piece"
+salt = "pinch"
 mayonaise = "30 grams"
 ground_cumin = "1 teaspoon"
 garlic_powder = "1 teaspoon"

@@ -1,4 +1,14 @@
-#[derive(Debug)]
+#[derive(Debug, Clone, Eq, PartialEq)]
+pub enum IngredientMeasurement {
+    Cloves(u8),
+    Inch(u8),
+    Pinch(u8),
+    Sprinkle,
+    Whole(u8),
+    Unspecified,
+}
+
+#[derive(Debug, Clone, Eq, PartialEq)]
 pub enum LiquidMeasurement {
     Milliliters(u32),
     TableSpoon(u32),
@@ -38,8 +48,9 @@ impl LiquidMeasurement {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Eq, PartialEq)]
 pub enum DryMeasurement {
+    Count(u8), // Eg: 1 egg
     Milligrams(u32),
     Grams(u32),
     Kilograms(u32),
@@ -51,6 +62,7 @@ impl DryMeasurement {
             DryMeasurement::Milligrams(mg) => mg,
             DryMeasurement::Grams(g) => g * 1000,
             DryMeasurement::Kilograms(kg) => kg * 1000000,
+            DryMeasurement::Count(_) => panic!("Cannot convert count to mg"),
         }
     }
 
@@ -59,6 +71,7 @@ impl DryMeasurement {
             DryMeasurement::Milligrams(mg) => mg / 1000,
             DryMeasurement::Grams(g) => g,
             DryMeasurement::Kilograms(kg) => kg * 1000,
+            DryMeasurement::Count(_) => panic!("Cannot convert count to g"),
         }
     }
 
@@ -67,23 +80,25 @@ impl DryMeasurement {
             DryMeasurement::Milligrams(mg) => mg / 1000000,
             DryMeasurement::Grams(g) => g / 1000,
             DryMeasurement::Kilograms(kg) => kg,
+            DryMeasurement::Count(_) => panic!("Cannot convert count to kg"),
         }
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Eq, PartialEq)]
 pub enum PrePackagedMeasurement {
-    Package(u32),
-    Bag(u32),
-    Bottle(u32),
-    Can(u32),
-    Jar(u32),
-    Carton(u32),
+    Bag(u8),
+    Bottle(u8),
+    Box(u8),
+    Can(u8),
+    Jar(u8),
+    Carton(u8),
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Eq, PartialEq)]
 pub enum Measurements {
     Liquid(LiquidMeasurement),
     Dry(DryMeasurement),
     PrePackaged(PrePackagedMeasurement),
+    Ingredient(IngredientMeasurement),
 }

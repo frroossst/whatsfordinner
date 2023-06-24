@@ -1,4 +1,4 @@
-use crate::measurements::Measurements;
+use crate::measurements::{Measurements, LiquidMeasurement, DryMeasurement, PrePackagedMeasurement, IngredientMeasurement};
 use std::collections::HashMap;
 use crate::utils;
 
@@ -9,7 +9,7 @@ pub struct Recipe {
     pub effort: String,
     pub ingredients_lead: i8,
     pub instructions: Vec<String>,
-    pub ingredients: HashMap<String, String>,
+    pub ingredients: HashMap<String, Measurements>,
 }
 
 impl Recipe {
@@ -24,8 +24,8 @@ impl Recipe {
         }
     }
     pub fn load(&mut self, file_path: String) -> () {
-        let mut table = utils::read_toml_to_table(file_path);
-
+        let mut table = utils::read_toml_to_table(file_path.clone());
+println!("{:?}", file_path.clone());
         self.name = table["meta"]["name"].as_str().unwrap().to_string();
         self.genre = table["meta"]["genre"].as_str().unwrap().to_string();
         self.effort = table["meta"]["effort"].as_str().unwrap().to_string();
@@ -33,14 +33,74 @@ impl Recipe {
 
         let ings: Vec<_> = table["ingredients"].as_table_mut().unwrap().iter_mut().collect();
         for i in ings {
-            let amount_parse = i.1.as_str().unwrap().to_string().split(" ").collect::<Vec<&str>>();
+            let amount_collected: Vec<&str> = i.1.as_str().unwrap().split(" ").collect();
             let name = i.0.clone();
-            let amount;
-            match amount_parse[1] {
-                "tsp" => {
-
+println!("{:?}", amount_collected);
+            let amount = match amount_collected[1] {
+                "ml" | "milliliters" => {
+                    Measurements::Liquid(LiquidMeasurement::Milliliters(amount_collected[0].parse::<u32>().expect("invalid amount")))
                 }
-            }
+                "tsp" | "teaspoon" => {
+                    Measurements::Liquid(LiquidMeasurement::TeaSpoon(amount_collected[0].parse::<u32>().expect("invalid amount")))
+                }
+                "tbsp" | "tablespoon" => {
+                    Measurements::Liquid(LiquidMeasurement::TableSpoon(amount_collected[0].parse::<u32>().expect("invalid amount")))
+                }
+                "oz" | "fluid ounces" => {
+                    Measurements::Liquid(LiquidMeasurement::FluidOunce(amount_collected[0].parse::<u32>().expect("invalid amount")))
+                }
+                "cup" | "cups" => {
+                    Measurements::Liquid(LiquidMeasurement::Cup(amount_collected[0].parse::<u32>().expect("invalid amount")))
+                }
+                "piece" | "pieces" => {
+                    Measurements::Dry(DryMeasurement::Count(amount_collected[0].parse::<u8>().expect("invalid amount")))
+                }
+                "mg" | "milligrams" => {
+                    Measurements::Dry(DryMeasurement::Milligrams(amount_collected[0].parse::<u32>().expect("invalid amount")))
+                }
+                "g" | "grams" => {
+                    Measurements::Dry(DryMeasurement::Grams(amount_collected[0].parse::<u32>().expect("invalid amount")))
+                }
+                "kg" | "kilograms" => {
+                    Measurements::Dry(DryMeasurement::Kilograms(amount_collected[0].parse::<u32>().expect("invalid amount")))
+                }
+                "bag" | "bags" => {
+                    Measurements::PrePackaged(PrePackagedMeasurement::Bag(amount_collected[0].parse::<u8>().expect("invalid amount")))
+                }
+                "box" | "boxes" => {
+                    Measurements::PrePackaged(PrePackagedMeasurement::Box(amount_collected[0].parse::<u8>().expect("invalid amount")))
+                }
+                "can" | "cans" => {
+                    Measurements::PrePackaged(PrePackagedMeasurement::Can(amount_collected[0].parse::<u8>().expect("invalid amount")))
+                }
+                "jar" | "jars" => {
+                    Measurements::PrePackaged(PrePackagedMeasurement::Jar(amount_collected[0].parse::<u8>().expect("invalid amount")))
+                }
+                "carton" | "cartons" => {
+                    Measurements::PrePackaged(PrePackagedMeasurement::Carton(amount_collected[0].parse::<u8>().expect("invalid amount")))
+                }
+                "cloves" | "clove" => {
+                    Measurements::Ingredient(IngredientMeasurement::Cloves(amount_collected[0].parse::<u8>().expect("invalid amount")))
+                }
+                "pinch" | "pinches" => {
+                    Measurements::Ingredient(IngredientMeasurement::Pinch(amount_collected[0].parse::<u8>().expect("invalid amount")))
+                } 
+                "sprinkle" | "sprinkles" => {
+                    Measurements::Ingredient(IngredientMeasurement::Sprinkle)
+                }
+                "inch" | "inches" => {
+                    Measurements::Ingredient(IngredientMeasurement::Inch(amount_collected[0].parse::<u8>().expect("invalid amount")))
+                }
+                "whole" => {
+                    Measurements::Ingredient(IngredientMeasurement::Whole(amount_collected[0].parse::<u8>().expect("invalid amount")))
+                }
+                "unspecified" => {
+                    Measurements::Ingredient(IngredientMeasurement::Unspecified)
+                }
+                _ => {
+                    panic!("invalid measurement {} on {:?} in {}", amount_collected[1], amount_collected, file_path)
+                }
+            };
             self.ingredients.insert(name, amount);
         }
 
