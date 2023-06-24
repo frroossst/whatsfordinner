@@ -25,7 +25,7 @@ impl Recipe {
     }
     pub fn load(&mut self, file_path: String) -> () {
         let mut table = utils::read_toml_to_table(file_path.clone());
-println!("{:?}", file_path.clone());
+
         self.name = table["meta"]["name"].as_str().unwrap().to_string();
         self.genre = table["meta"]["genre"].as_str().unwrap().to_string();
         self.effort = table["meta"]["effort"].as_str().unwrap().to_string();
@@ -35,7 +35,6 @@ println!("{:?}", file_path.clone());
         for i in ings {
             let amount_collected: Vec<&str> = i.1.as_str().unwrap().split(" ").collect();
             let name = i.0.clone();
-println!("{:?}", amount_collected);
                 
             match amount_collected[0] {
                 "unspecified" => {

@@ -1,3 +1,5 @@
+use std::ops::{Add, Sub};
+
 #[derive(Debug, Clone, Eq, PartialEq)]
 pub enum IngredientMeasurement {
     Cloves(u8),
@@ -49,6 +51,56 @@ impl LiquidMeasurement {
             LiquidMeasurement::TeaSpoon(tsp) => tsp * 5.,
             LiquidMeasurement::FluidOunce(oz) => oz * 30.,
             LiquidMeasurement::Cup(cup) => cup * 240.,
+        }
+    }
+}
+
+impl Add for LiquidMeasurement {
+    type Output = LiquidMeasurement;
+
+    fn add(self, other: LiquidMeasurement) -> LiquidMeasurement {
+        match (self, other) {
+            (LiquidMeasurement::Milliliters(ml1), LiquidMeasurement::Milliliters(ml2)) => {
+                LiquidMeasurement::Milliliters(ml1 + ml2)
+            }
+            (LiquidMeasurement::TableSpoon(tbsp1), LiquidMeasurement::TableSpoon(tbsp2)) => {
+                LiquidMeasurement::TableSpoon(tbsp1 + tbsp2)
+            }
+            (LiquidMeasurement::TeaSpoon(tsp1), LiquidMeasurement::TeaSpoon(tsp2)) => {
+                LiquidMeasurement::TeaSpoon(tsp1 + tsp2)
+            }
+            (LiquidMeasurement::FluidOunce(oz1), LiquidMeasurement::FluidOunce(oz2)) => {
+                LiquidMeasurement::FluidOunce(oz1 + oz2)
+            }
+            (LiquidMeasurement::Cup(cup1), LiquidMeasurement::Cup(cup2)) => {
+                LiquidMeasurement::Cup(cup1 + cup2)
+            }
+            (a, b) => panic!("Cannot add {:?} and {:?}", a, b),
+        }
+    }
+}
+
+impl Sub for LiquidMeasurement {
+    type Output = LiquidMeasurement;
+
+    fn sub(self, other: LiquidMeasurement) -> LiquidMeasurement {
+        match (self, other) {
+            (LiquidMeasurement::Milliliters(ml1), LiquidMeasurement::Milliliters(ml2)) => {
+                LiquidMeasurement::Milliliters(ml1 - ml2)
+            }
+            (LiquidMeasurement::TableSpoon(tbsp1), LiquidMeasurement::TableSpoon(tbsp2)) => {
+                LiquidMeasurement::TableSpoon(tbsp1 - tbsp2)
+            }
+            (LiquidMeasurement::TeaSpoon(tsp1), LiquidMeasurement::TeaSpoon(tsp2)) => {
+                LiquidMeasurement::TeaSpoon(tsp1 - tsp2)
+            }
+            (LiquidMeasurement::FluidOunce(oz1), LiquidMeasurement::FluidOunce(oz2)) => {
+                LiquidMeasurement::FluidOunce(oz1 - oz2)
+            }
+            (LiquidMeasurement::Cup(cup1), LiquidMeasurement::Cup(cup2)) => {
+                LiquidMeasurement::Cup(cup1 - cup2)
+            }
+            (a, b) => panic!("Cannot subtract {:?} and {:?}", a, b),
         }
     }
 }

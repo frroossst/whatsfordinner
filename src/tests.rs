@@ -47,4 +47,20 @@ mod tests {
         assert_eq!(ml, 480.);
     }
 
+    #[test]
+    fn test_add_tsp() {
+        let tsp1 = LiquidMeasurement::TeaSpoon(1.);
+        let tsp2 = LiquidMeasurement::TeaSpoon(2.);
+        let tsp3 = tsp1 + tsp2;
+        assert_eq!(tsp3, LiquidMeasurement::TeaSpoon(3.));
+    }
+
+    #[test]
+    fn test_sub_tsp() {
+        let tsp1 = LiquidMeasurement::TeaSpoon(1.);
+        let tsp2 = LiquidMeasurement::TeaSpoon(2.);
+        let tsp3 = tsp2 - tsp1;
+        assert_eq!(tsp3, LiquidMeasurement::TeaSpoon(1.));
+    }
+
 }
