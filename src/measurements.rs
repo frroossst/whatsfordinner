@@ -17,9 +17,9 @@ pub enum IngredientMeasurement {
 
 #[derive(Debug, Clone, PartialEq)]
 pub enum LiquidMeasurement {
-    Milliliters(f32),
-    TableSpoon(f32),
     TeaSpoon(f32),
+    TableSpoon(f32),
+    Milliliters(f32),
     FluidOunce(f32),
     Cup(f32),
 }
@@ -27,30 +27,18 @@ pub enum LiquidMeasurement {
 impl LiquidMeasurement {
     pub fn to_tsp(&self) -> f32 {
         match *self {
-            LiquidMeasurement::Milliliters(ml) => ml / 5.,
-            LiquidMeasurement::TableSpoon(tbsp) => tbsp * 3.,
-            LiquidMeasurement::TeaSpoon(tsp) => tsp,
-            LiquidMeasurement::FluidOunce(oz) => oz * 6.,
-            LiquidMeasurement::Cup(cup) => cup * 48.,
+            LiquidMeasurement::Milliliters(ml) => ml * 0.1689,
         }
     }
     pub fn to_tbsp(&self) -> f32 {
         match *self {
-            LiquidMeasurement::Milliliters(ml) => ml / 15.,
-            LiquidMeasurement::TableSpoon(tbsp) => tbsp,
-            LiquidMeasurement::TeaSpoon(tsp) => tsp / 3.,
-            LiquidMeasurement::FluidOunce(oz) => oz * 2.,
-            LiquidMeasurement::Cup(cup) => cup * 16.,
+            // 1 ml = 0.05631 tbsp
+            LiquidMeasurement::Milliliters(ml) => ml * 0.05631,
         }
     }
 
     pub fn to_ml(&self) -> f32 {
         match *self {
-            LiquidMeasurement::Milliliters(ml) => ml,
-            LiquidMeasurement::TableSpoon(tbsp) => tbsp * 15.,
-            LiquidMeasurement::TeaSpoon(tsp) => tsp * 5.,
-            LiquidMeasurement::FluidOunce(oz) => oz * 30.,
-            LiquidMeasurement::Cup(cup) => cup * 240.,
         }
     }
 }
@@ -120,7 +108,6 @@ impl DryMeasurement {
             DryMeasurement::Milligrams(mg) => mg,
             DryMeasurement::Grams(g) => g * 1000,
             DryMeasurement::Kilograms(kg) => kg * 1000000,
-            DryMeasurement::Pounds(lb) => lb * 453592,
             DryMeasurement::Count(_) => panic!("Cannot convert count to mg"),
         }
     }
@@ -130,7 +117,6 @@ impl DryMeasurement {
             DryMeasurement::Milligrams(mg) => mg / 1000,
             DryMeasurement::Grams(g) => g,
             DryMeasurement::Kilograms(kg) => kg * 1000,
-            DryMeasurement::Pounds(lb) => lb * 454,
             DryMeasurement::Count(_) => panic!("Cannot convert count to g"),
         }
     }
@@ -140,7 +126,6 @@ impl DryMeasurement {
             DryMeasurement::Milligrams(mg) => mg / 1000000,
             DryMeasurement::Grams(g) => g / 1000,
             DryMeasurement::Kilograms(kg) => kg,
-            DryMeasurement::Pounds(lb) => lb * 454 / 1000,
             DryMeasurement::Count(_) => panic!("Cannot convert count to kg"),
         }
     }
