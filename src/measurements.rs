@@ -146,6 +146,56 @@ impl DryMeasurement {
     }
 }
 
+impl Add for DryMeasurement {
+    type Output = DryMeasurement;
+
+    fn add(self, rhs: Self) -> DryMeasurement {
+        match (self, rhs) {
+            (DryMeasurement::Count(c1), DryMeasurement::Count(c2)) => {
+                DryMeasurement::Count(c1 + c2)
+            }
+            (DryMeasurement::Milligrams(mg1), DryMeasurement::Milligrams(mg2)) => {
+                DryMeasurement::Milligrams(mg1 + mg2)
+            }
+            (DryMeasurement::Grams(g1), DryMeasurement::Grams(g2)) => {
+                DryMeasurement::Grams(g1 + g2)
+            }
+            (DryMeasurement::Kilograms(kg1), DryMeasurement::Kilograms(kg2)) => {
+                DryMeasurement::Kilograms(kg1 + kg2)
+            }
+            (DryMeasurement::Pounds(lb1), DryMeasurement::Pounds(lb2)) => {
+                DryMeasurement::Pounds(lb1 + lb2)
+            }
+            (a, b) => panic!("Cannot add {:?} and {:?}", a, b),
+        }
+    }
+}
+
+impl Sub for DryMeasurement {
+    type Output = DryMeasurement;
+
+    fn sub(self, rhs: Self) -> DryMeasurement {
+        match (self, rhs) {
+            (DryMeasurement::Count(c1), DryMeasurement::Count(c2)) => {
+                DryMeasurement::Count(c1 - c2)
+            }
+            (DryMeasurement::Milligrams(mg1), DryMeasurement::Milligrams(mg2)) => {
+                DryMeasurement::Milligrams(mg1 - mg2)
+            }
+            (DryMeasurement::Grams(g1), DryMeasurement::Grams(g2)) => {
+                DryMeasurement::Grams(g1 - g2)
+            }
+            (DryMeasurement::Kilograms(kg1), DryMeasurement::Kilograms(kg2)) => {
+                DryMeasurement::Kilograms(kg1 - kg2)
+            }
+            (DryMeasurement::Pounds(lb1), DryMeasurement::Pounds(lb2)) => {
+                DryMeasurement::Pounds(lb1 - lb2)
+            }
+            (a, b) => panic!("Cannot subtract {:?} and {:?}", a, b),
+        }
+    }
+}
+
 #[derive(Debug, Clone, Eq, PartialEq)]
 pub enum PrePackagedMeasurement {
     Bag(u8),
@@ -154,6 +204,62 @@ pub enum PrePackagedMeasurement {
     Can(u8),
     Jar(u8),
     Carton(u8),
+}
+
+impl Add for PrePackagedMeasurement {
+    type Output = PrePackagedMeasurement;
+
+    fn add(self, rhs: Self) -> PrePackagedMeasurement {
+        match (self, rhs) {
+            (PrePackagedMeasurement::Bag(b1), PrePackagedMeasurement::Bag(b2)) => {
+                PrePackagedMeasurement::Bag(b1 + b2)
+            }
+            (PrePackagedMeasurement::Bottle(b1), PrePackagedMeasurement::Bottle(b2)) => {
+                PrePackagedMeasurement::Bottle(b1 + b2)
+            }
+            (PrePackagedMeasurement::Box(b1), PrePackagedMeasurement::Box(b2)) => {
+                PrePackagedMeasurement::Box(b1 + b2)
+            }
+            (PrePackagedMeasurement::Can(b1), PrePackagedMeasurement::Can(b2)) => {
+                PrePackagedMeasurement::Can(b1 + b2)
+            }
+            (PrePackagedMeasurement::Jar(b1), PrePackagedMeasurement::Jar(b2)) => {
+                PrePackagedMeasurement::Jar(b1 + b2)
+            }
+            (PrePackagedMeasurement::Carton(b1), PrePackagedMeasurement::Carton(b2)) => {
+                PrePackagedMeasurement::Carton(b1 + b2)
+            }
+            (a, b) => panic!("Cannot add {:?} and {:?}", a, b),
+        }
+    }
+}
+
+impl Sub for PrePackagedMeasurement {
+    type Output = PrePackagedMeasurement;
+
+    fn sub(self, rhs: Self) -> PrePackagedMeasurement {
+        match (self, rhs) {
+            (PrePackagedMeasurement::Bag(b1), PrePackagedMeasurement::Bag(b2)) => {
+                PrePackagedMeasurement::Bag(b1 - b2)
+            }
+            (PrePackagedMeasurement::Bottle(b1), PrePackagedMeasurement::Bottle(b2)) => {
+                PrePackagedMeasurement::Bottle(b1 - b2)
+            }
+            (PrePackagedMeasurement::Box(b1), PrePackagedMeasurement::Box(b2)) => {
+                PrePackagedMeasurement::Box(b1 - b2)
+            }
+            (PrePackagedMeasurement::Can(b1), PrePackagedMeasurement::Can(b2)) => {
+                PrePackagedMeasurement::Can(b1 - b2)
+            }
+            (PrePackagedMeasurement::Jar(b1), PrePackagedMeasurement::Jar(b2)) => {
+                PrePackagedMeasurement::Jar(b1 - b2)
+            }
+            (PrePackagedMeasurement::Carton(b1), PrePackagedMeasurement::Carton(b2)) => {
+                PrePackagedMeasurement::Carton(b1 - b2)
+            }
+            (a, b) => panic!("Cannot subtract {:?} and {:?}", a, b),
+        }
+    }
 }
 
 #[derive(Debug, Clone, PartialEq)]
