@@ -32,8 +32,16 @@ impl LiquidMeasurement {
     }
     pub fn to_tbsp(&self) -> f32 {
         match *self {
+            // 1 tsp = 0.3333 tbsp
+            LiquidMeasurement::TeaSpoon(tsp) => tsp * 0.3333,
+            // 1 tbsp = 1 tbsp
+            LiquidMeasurement::TableSpoon(tbsp) => tbsp,
             // 1 ml = 0.05631 tbsp
             LiquidMeasurement::Milliliters(ml) => ml * 0.05631,
+            // 1 fl oz = 1.6 tbsp
+            LiquidMeasurement::FluidOunce(oz) => oz * 1.6,
+            // 1 cup = 16 tbsp
+            LiquidMeasurement::Cup(cup) => cup * 16.,
         }
     }
 
