@@ -8,7 +8,7 @@ mod tests {
         let tspa = tsp.to_tsp();
         assert_eq!(tspa, 1.);
 
-        let tbsp = LiquidMeasurement::TeaSpoon(1.);
+        let tbsp = LiquidMeasurement::TableSpoon(1.);
         let tsp = tbsp.to_tsp();
         assert_eq!(tsp, 3.);
 
@@ -31,7 +31,7 @@ mod tests {
         let tbsp = tsp.to_tbsp();
         assert_eq!(tbsp, 0.3333);
 
-        let tbsp = LiquidMeasurement::TeaSpoon(0.3333);
+        let tbsp = LiquidMeasurement::TableSpoon(1.);
         let tbspa = tbsp.to_tbsp();
         assert_eq!(tbspa, 1.);
 
@@ -39,7 +39,7 @@ mod tests {
         let tbsp = ml.to_tbsp();
         assert_eq!(tbsp, 0.05631);
 
-        let floz = LiquidMeasurement::FluidOunce(4.8);
+        let floz = LiquidMeasurement::FluidOunce(1.);
         let tbsp = floz.to_tbsp();
         assert_eq!(tbsp, 1.6);
 
@@ -56,7 +56,7 @@ mod tests {
 
         let tbsp = LiquidMeasurement::TeaSpoon(1.);
         let ml = tbsp.to_ml();
-        assert_eq!(ml, 17.7581);
+        assert_eq!(ml, 5.9193);
 
         let ml = LiquidMeasurement::Milliliters(1.);
         let ml = ml.to_ml();
