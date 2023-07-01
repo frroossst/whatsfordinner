@@ -76,16 +76,16 @@ impl Recipe {
                     Measurements::Dry(DryMeasurement::Count(amount_collected[0].parse::<u8>().expect("invalid amount")))
                 }
                 "mg" | "milligrams" => {
-                    Measurements::Dry(DryMeasurement::Milligrams(amount_collected[0].parse::<u32>().expect("invalid amount")))
+                    Measurements::Dry(DryMeasurement::Milligrams(amount_collected[0].parse::<f32>().expect("invalid amount")))
                 }
                 "g" | "grams" => {
-                    Measurements::Dry(DryMeasurement::Grams(amount_collected[0].parse::<u32>().expect("invalid amount")))
+                    Measurements::Dry(DryMeasurement::Grams(amount_collected[0].parse::<f32>().expect("invalid amount")))
                 }
                 "kg" | "kilograms" => {
-                    Measurements::Dry(DryMeasurement::Kilograms(amount_collected[0].parse::<u32>().expect("invalid amount")))
+                    Measurements::Dry(DryMeasurement::Kilograms(amount_collected[0].parse::<f32>().expect("invalid amount")))
                 }
                 "lb" | "lbs" | "pound" | "pounds" => {
-                    Measurements::Dry(DryMeasurement::Pounds(amount_collected[0].parse::<u32>().expect("invalid amount")))
+                    Measurements::Dry(DryMeasurement::Pounds(amount_collected[0].parse::<f32>().expect("invalid amount")))
                 }
                 "bag" | "bags" => {
                     Measurements::PrePackaged(PrePackagedMeasurement::Bag(amount_collected[0].parse::<u8>().expect("invalid amount")))

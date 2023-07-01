@@ -27,7 +27,15 @@ pub enum LiquidMeasurement {
 impl LiquidMeasurement {
     pub fn to_tsp(&self) -> f32 {
         match *self {
+            LiquidMeasurement::TeaSpoon(tsp) => tsp,
+            // 1 tbsp = 3 tsp
+            LiquidMeasurement::TableSpoon(tbsp) => tbsp * 3.,
+            // 1 ml = 0.1689 tsp
             LiquidMeasurement::Milliliters(ml) => ml * 0.1689,
+            // 1 fl oz = 4.8 tsp
+            LiquidMeasurement::FluidOunce(oz) => oz * 4.8,
+            // 1 cup = 48 tsp
+            LiquidMeasurement::Cup(cup) => cup * 48.,
         }
     }
     pub fn to_tbsp(&self) -> f32 {
@@ -47,6 +55,16 @@ impl LiquidMeasurement {
 
     pub fn to_ml(&self) -> f32 {
         match *self {
+            // 1 tsp = 5.9193 ml
+            LiquidMeasurement::TeaSpoon(tsp) => tsp * 5.9193,
+            // 1 tbsp = 17.7581 ml
+            LiquidMeasurement::TableSpoon(tbsp) => tbsp * 17.7581,
+            // 1 ml = 1 ml
+            LiquidMeasurement::Milliliters(ml) => ml,
+            // 1 fl oz = 28.4130 ml
+            LiquidMeasurement::FluidOunce(oz) => oz * 28.4130,
+            // 1 cup = 284.1306 ml
+            LiquidMeasurement::Cup(cup) => cup * 284.1306,
         }
     }
 }
@@ -101,39 +119,42 @@ impl Sub for LiquidMeasurement {
     }
 }
 
-#[derive(Debug, Clone, Eq, PartialEq)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum DryMeasurement {
     Count(u8), // Eg: 1 egg
-    Milligrams(u32),
-    Grams(u32),
-    Kilograms(u32),
-    Pounds(u32),
+    Milligrams(f32),
+    Grams(f32),
+    Kilograms(f32),
+    Pounds(f32),
 }
 
 impl DryMeasurement {
-    pub fn to_mg(&self) -> u32 {
+    pub fn to_mg(&self) -> f32 {
         match *self {
             DryMeasurement::Milligrams(mg) => mg,
-            DryMeasurement::Grams(g) => g * 1000,
-            DryMeasurement::Kilograms(kg) => kg * 1000000,
+            DryMeasurement::Grams(g) => g * 1000.,
+            DryMeasurement::Kilograms(kg) => kg,
+            DryMeasurement::Pounds(lb) => lb * 453592.4,
             DryMeasurement::Count(_) => panic!("Cannot convert count to mg"),
         }
     }
 
-    pub fn to_g(&self) -> u32 {
+    pub fn to_g(&self) -> f32 {
         match *self {
-            DryMeasurement::Milligrams(mg) => mg / 1000,
+            DryMeasurement::Milligrams(mg) => mg / 1000.,
             DryMeasurement::Grams(g) => g,
-            DryMeasurement::Kilograms(kg) => kg * 1000,
+            DryMeasurement::Kilograms(kg) => kg * 1000.,
+            DryMeasurement::Pounds(lb) => lb * 453.5924,
             DryMeasurement::Count(_) => panic!("Cannot convert count to g"),
         }
     }
 
-    pub fn to_kg(&self) -> u32 {
+    pub fn to_kg(&self) -> f32 {
         match *self {
-            DryMeasurement::Milligrams(mg) => mg / 1000000,
-            DryMeasurement::Grams(g) => g / 1000,
+            DryMeasurement::Milligrams(mg) => mg / 1000000.,
+            DryMeasurement::Grams(g) => g / 1000.,
             DryMeasurement::Kilograms(kg) => kg,
+            DryMeasurement::Pounds(lb) => lb * 0.4535,
             DryMeasurement::Count(_) => panic!("Cannot convert count to kg"),
         }
     }
