@@ -285,3 +285,42 @@ pub enum Measurements {
 }
 
 impl Eq for Measurements {}
+
+impl Add for Measurements {
+    type Output = Measurements;
+
+    fn add(self, rhs: Self) -> Measurements {
+        match (self, rhs) {
+            (Measurements::Liquid(l1), Measurements::Liquid(l2)) => {
+                Measurements::Liquid(l1 + l2)
+            }
+            (Measurements::Dry(d1), Measurements::Dry(d2)) => {
+                Measurements::Dry(d1 + d2)
+            }
+            (Measurements::PrePackaged(p1), Measurements::PrePackaged(p2)) => {
+                Measurements::PrePackaged(p1 + p2)
+            }
+            (a, b) => panic!("Cannot add {:?} and {:?}", a, b),
+        }
+    }
+}
+
+impl Sub for Measurements {
+    type Output = Measurements;
+
+    fn sub(self, rhs: Self) -> Measurements {
+        match (self, rhs) {
+            (Measurements::Liquid(l1), Measurements::Liquid(l2)) => {
+                Measurements::Liquid(l1 - l2)
+            }
+            (Measurements::Dry(d1), Measurements::Dry(d2)) => {
+                Measurements::Dry(d1 - d2)
+            }
+            (Measurements::PrePackaged(p1), Measurements::PrePackaged(p2)) => {
+                Measurements::PrePackaged(p1 - p2)
+            }
+            (a, b) => panic!("Cannot subtract {:?} and {:?}", a, b),
+        }
+    }
+}
+
